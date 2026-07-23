@@ -1,0 +1,104 @@
+aid: first-direct
+name: first direct
+review:
+  question: Does first direct expose a documented public API surface, and is a live UK
+    Open Banking Open Data endpoint confirmed for the brand?
+  answer: true
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    first direct is a division of HSBC UK Bank plc and does not operate its own
+    stand-alone developer portal. Its UK Open Banking surfaces are published under
+    HSBC, which is one of the nine CMA9 banks mandated by the Competition and Markets
+    Authority. A live, public, unauthenticated OBIE Open Data endpoint was CONFIRMED:
+    https://api.hsbc.com/open-banking/v2.2/personal-current-accounts returns HTTP 200
+    with content-type application/prs.openbanking.opendata.v2.2+json and lists "first
+    direct" as a distinct BrandName alongside "HSBC UK". Other Open Data resources on
+    the same host (atms, branches, business-current-accounts, unsecured-sme-loans) also
+    return 200 but carry only the "HSBC UK" brand - consistent with first direct being a
+    branchless telephone/internet bank with no ATMs of its own.
+
+    The OBIE Read/Write APIs - Account and Transaction Information (AIS), Payment
+    Initiation (PIS) and Confirmation of Funds (CBPII) - are documented through HSBC's
+    developer portal at https://develop.hsbc.com/, which onboards TPPs for the HSBC UK,
+    first direct and M&S Bank brands. These are FAPI-secured (OAuth2/OIDC authorization,
+    mutual-TLS client authentication, PSD2 strong customer authentication) and require
+    FCA authorisation plus OBIE/eIDAS certificates, so no production Read/Write base URL
+    was independently confirmed (it sits behind certificate-bound onboarding) and the
+    baseURL for those three APIs is intentionally left empty rather than fabricated.
+
+    Spec provenance: all four harvested OpenAPI documents are the SHARED OBIE STANDARD
+    specifications (from OpenBankingUK GitHub repositories), NOT first-direct-proprietary
+    contracts. The Open Data spec is Swagger 2.0 "Open Data API" v1.3
+    (opendata-api-spec-compiled); the three Read/Write specs are OpenAPI 3.0.0 v4.0.1
+    (read-write-api-specs). first direct/HSBC conform to these standards but publish no
+    bank-specific OpenAPI publicly.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.hsbc.com/open-banking/v2.2
+      documented: true
+      note: Confirmed live public Open Data host; HTTP 200 with OBIE opendata JSON media type. "first direct" present as a brand in personal-current-accounts.
+    - protocol: REST
+      scheme: https
+      note: OBIE Read/Write APIs (AIS/PIS/CBPII) documented at develop.hsbc.com; FAPI OAuth2/OIDC + mTLS + PSD2 SCA. Production base is certificate-gated and not publicly confirmable.
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket surface is documented; OBIE event notification is HTTP callback/polling, not WebSocket.
+  openDataConfirmed:
+    baseURL: https://api.hsbc.com/open-banking/v2.2
+    endpointsConfirmed200:
+      - GET https://api.hsbc.com/open-banking/v2.2/atms
+      - GET https://api.hsbc.com/open-banking/v2.2/branches
+      - GET https://api.hsbc.com/open-banking/v2.2/personal-current-accounts
+      - GET https://api.hsbc.com/open-banking/v2.2/business-current-accounts
+      - GET https://api.hsbc.com/open-banking/v2.2/unsecured-sme-loans
+    firstDirectBrandPresentIn:
+      - personal-current-accounts
+    mediaType: application/prs.openbanking.opendata.v2.2+json
+  authModel:
+    openData: none (public, unauthenticated)
+    readWrite: FAPI OAuth2/OIDC + mutual-TLS + PSD2 SCA + OBIE/eIDAS certificates via FCA/TPP onboarding
+  specProvenance:
+    - path: openapi/obie-opendata-openapi.json
+      standard: OBIE Open Data API (Swagger 2.0)
+      version: v1.3
+      source: https://raw.githubusercontent.com/OpenBankingUK/opendata-api-spec-compiled/master/opendata-swagger.json
+      proprietary: false
+    - path: openapi/obie-account-info-openapi.yaml
+      standard: OBIE Account and Transaction API (OpenAPI 3.0.0)
+      version: 4.0.1
+      source: https://raw.githubusercontent.com/OpenBankingUK/read-write-api-specs/master/dist/openapi/account-info-openapi.yaml
+      proprietary: false
+    - path: openapi/obie-payment-initiation-openapi.yaml
+      standard: OBIE Payment Initiation API (OpenAPI 3.0.0)
+      version: 4.0.1
+      source: https://raw.githubusercontent.com/OpenBankingUK/read-write-api-specs/master/dist/openapi/payment-initiation-openapi.yaml
+      proprietary: false
+    - path: openapi/obie-confirmation-funds-openapi.yaml
+      standard: OBIE Confirmation of Funds API (OpenAPI 3.0.0)
+      version: 4.0.1
+      source: https://raw.githubusercontent.com/OpenBankingUK/read-write-api-specs/master/dist/openapi/confirmation-funds-openapi.yaml
+      proprietary: false
+sources:
+  - url: https://www.firstdirect.com/
+    type: Website
+    note: Homepage; title "Online and Personal Banking | first direct bank"; states first direct is a division of HSBC UK Bank plc. HTTP 200.
+  - url: https://www.firstdirect.com/ways-to-bank/open-banking/
+    type: OpenBanking
+    note: Consumer Open Banking explainer; directs TPPs to FCA register; no first-party developer portal. HTTP 200.
+  - url: https://develop.hsbc.com/
+    type: DeveloperPortal
+    note: HSBC developer portal serving HSBC UK, first direct and M&S Bank Open Banking APIs. HTTP 200.
+  - url: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
+    type: Documentation
+    note: Open Banking API getting-started documentation. HTTP 200.
+  - url: https://api.hsbc.com/open-banking/v2.2/personal-current-accounts
+    type: APIReference
+    note: Live Open Data PCA endpoint; HTTP 200; lists "first direct" as a BrandName.
+  - url: https://www.openbankingtracker.com/provider/firstdirect
+    type: Reference
+    note: Third-party tracker confirming first direct developer portal = developer.hsbc.com and HSBC ownership.

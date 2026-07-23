@@ -1,0 +1,151 @@
+aid: first-direct
+url: https://raw.githubusercontent.com/api-evangelist/first-direct/refs/heads/main/apis.yml
+name: first direct
+kind: company
+description: first direct is a telephone- and internet-based retail bank and a division
+  of HSBC UK Bank plc, headquartered in Leeds, England and launched in 1989. It offers
+  personal current accounts, savings, credit cards, loans, mortgages and insurance to
+  UK consumers with a reputation for customer service, operating with no physical
+  branches of its own. As an HSBC brand, first direct participates in the UK Open Banking
+  regime under HSBC UK - one of the nine CMA9 banks mandated by the Competition and
+  Markets Authority - and is regulated by the Financial Conduct Authority (FCA) and
+  Prudential Regulation Authority (PRA). Its Open Banking surfaces conform to the Open
+  Banking Implementation Entity (OBIE / Open Banking Limited) standards - a public,
+  unauthenticated Open Data API (personal current account product reference data, ATM
+  and branch locators, published on the shared HSBC api.hsbc.com host where "first
+  direct" appears as a distinct brand) and the FAPI-secured OBIE Read/Write APIs -
+  Account and Transaction Information (AIS), Payment Initiation (PIS) and Confirmation
+  of Funds (CBPII) - onboarded and documented through HSBC's developer portal at
+  develop.hsbc.com, which serves the HSBC UK, first direct and M&S Bank brands.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup (HSBC developer portal) · public Open Data
+  confidence: medium
+  source:
+  - authentication
+  - open-data
+  generated: '2026-07-23'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial Services
+- Banking
+- Open Banking
+- PSD2
+- OBIE
+- United Kingdom
+- Payments
+- Account Information
+- Open Data
+- HSBC
+- Fintech
+created: '2026-07-23'
+modified: '2026-07-23'
+specificationVersion: '0.19'
+apis:
+- aid: first-direct:first-direct-open-data-api
+  name: first direct Open Data API
+  description: Public, unauthenticated OBIE Open Data API exposing first direct product
+    reference data - personal current accounts and related read-only reference data -
+    published on the shared HSBC Open Data host where "first direct" is listed as a
+    distinct brand. Confirmed live (HTTP 200, application/prs.openbanking.opendata.v2.2+json).
+  humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
+  baseURL: https://api.hsbc.com/open-banking/v2.2
+  tags:
+  - Open Data
+  - Personal Current Accounts
+  - Reference Data
+  properties:
+  - type: OpenAPI
+    url: openapi/obie-opendata-openapi.json
+  - type: Documentation
+    url: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
+  - type: APIReference
+    url: https://api.hsbc.com/open-banking/v2.2/personal-current-accounts
+- aid: first-direct:first-direct-account-information-api
+  name: first direct Account and Transaction Information API (AIS)
+  description: OBIE Read/Write Account and Transaction Information (AIS) API for first
+    direct accounts, exposed through HSBC's developer platform. FAPI-secured with
+    OAuth2/OIDC, mutual-TLS client authentication and PSD2 strong customer
+    authentication; requires FCA/TPP onboarding and OBIE/eIDAS certificates. OpenAPI
+    pointer is the shared OBIE Read/Write standard the bank conforms to, not a
+    first-direct-proprietary contract.
+  humanURL: https://develop.hsbc.com/
+  baseURL: ''
+  tags:
+  - Account Information
+  - AISP
+  - Read/Write
+  properties:
+  - type: OpenAPI
+    url: openapi/obie-account-info-openapi.yaml
+  - type: Documentation
+    url: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
+  - type: APIReference
+    url: https://develop.hsbc.com/
+- aid: first-direct:first-direct-payment-initiation-api
+  name: first direct Payment Initiation API (PIS)
+  description: OBIE Read/Write Payment Initiation (PIS) API for first direct accounts,
+    exposed through HSBC's developer platform. FAPI-secured with OAuth2/OIDC, mutual-TLS
+    and PSD2 strong customer authentication; requires FCA/TPP onboarding and OBIE/eIDAS
+    certificates. OpenAPI pointer is the shared OBIE Read/Write standard, not a
+    first-direct-proprietary contract.
+  humanURL: https://develop.hsbc.com/
+  baseURL: ''
+  tags:
+  - Payment Initiation
+  - PISP
+  - Read/Write
+  properties:
+  - type: OpenAPI
+    url: openapi/obie-payment-initiation-openapi.yaml
+  - type: Documentation
+    url: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
+  - type: APIReference
+    url: https://develop.hsbc.com/
+- aid: first-direct:first-direct-confirmation-of-funds-api
+  name: first direct Confirmation of Funds API (CBPII)
+  description: OBIE Read/Write Confirmation of Funds (CBPII) API for first direct
+    accounts, exposed through HSBC's developer platform. FAPI-secured with OAuth2/OIDC,
+    mutual-TLS and PSD2 strong customer authentication; requires FCA/TPP onboarding and
+    OBIE/eIDAS certificates. OpenAPI pointer is the shared OBIE Read/Write standard,
+    not a first-direct-proprietary contract.
+  humanURL: https://develop.hsbc.com/
+  baseURL: ''
+  tags:
+  - Confirmation of Funds
+  - CBPII
+  - Read/Write
+  properties:
+  - type: OpenAPI
+    url: openapi/obie-confirmation-funds-openapi.yaml
+  - type: Documentation
+    url: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
+  - type: APIReference
+    url: https://develop.hsbc.com/
+common:
+- type: Website
+  url: https://www.firstdirect.com/
+- type: DeveloperPortal
+  url: https://develop.hsbc.com/
+- type: Documentation
+  url: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
+- type: OpenBanking
+  url: https://www.firstdirect.com/ways-to-bank/open-banking/
+- type: GitHubOrganization
+  url: https://github.com/hsbc
+- type: LinkedIn
+  url: https://www.linkedin.com/company/first-direct
+- type: Support
+  url: https://www.firstdirect.com/help/
+- type: TermsOfService
+  url: https://www.firstdirect.com/legals/terms-and-conditions/
+- type: PrivacyPolicy
+  url: https://www.firstdirect.com/privacy/
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
