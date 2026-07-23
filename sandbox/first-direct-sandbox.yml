@@ -1,0 +1,29 @@
+generated: '2026-07-23'
+method: searched
+source: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
+note: >-
+  first direct's Open Banking APIs are tested through the shared HSBC Developer
+  Portal sandbox (develop.hsbc.com), which serves the HSBC UK, first direct and
+  M&S Bank brands. The sandbox simulates production behaviour with test data and
+  covers Account Information, Payment Initiation and Funds Confirmation. No real
+  customer accounts are involved.
+portal: https://develop.hsbc.com/
+onboarding:
+  steps:
+  - Register on the HSBC Developer Portal (develop.hsbc.com).
+  - Create a project in the Dev Hub to obtain encryption/signing keys for the sandbox.
+  - Download the provided Postman collection + environment file with pre-populated sandbox credentials.
+  note: All registered users automatically get access to the Open Banking APIs.
+environments:
+  sandbox:
+    purpose: Test API integrations safely with simulated data (no real accounts).
+    covers: [Account Information (AIS), Payment Initiation (PIS), Funds Confirmation (CBPII)]
+    credentials: Pre-populated in the downloadable Postman environment; encryption keys generated per Dev Hub project.
+  production:
+    note: Requires FCA authorisation (TPP), OBIE/eIDAS transport & signing certificates, and directory registration; certificate-bound base URL not publicly listed.
+tooling:
+  postman:
+    available: true
+    delivery: Downloadable collection + environment from the Dev Hub sandbox project.
+test_values:
+  note: HSBC does not publish fixed magic test identifiers in public docs; sandbox test data is provisioned per project inside the Dev Hub and shipped in the Postman environment. No verbatim test values are reproduced here to avoid fabrication.

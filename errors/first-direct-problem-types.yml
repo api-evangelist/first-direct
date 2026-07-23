@@ -1,0 +1,37 @@
+generated: '2026-07-23'
+method: derived
+source: openapi/obie-account-info-openapi.yaml, openapi/obie-payment-initiation-openapi.yaml, openapi/obie-confirmation-funds-openapi.yaml
+format: obie-oberrorresponse1
+note: >-
+  Error catalogue derived from the HTTP 4xx/5xx responses declared across the OBIE
+  Read/Write OpenAPI documents. The error body is the OBIE OBErrorResponse1 schema
+  (Code, Id, Message, Errors[]) returned as application/json — NOT RFC 9457
+  problem+json. Every error response echoes the x-fapi-interaction-id correlation
+  header.
+envelope:
+  schema: OBErrorResponse1
+  fields: [Code, Id, Message, Errors]
+  error_item_fields: [ErrorCode, Message, Path, Url]
+  correlation_header: x-fapi-interaction-id
+problems:
+- {status: 400, title: Bad request, schema: OBErrorResponse1, meaning: Request is malformed or fails schema/field validation.}
+- {status: 401, title: Unauthorized, schema: OBErrorResponse1, meaning: Missing or invalid access token / authentication.}
+- {status: 403, title: Forbidden, schema: OBErrorResponse1, meaning: Token lacks the required scope or consent for the resource.}
+- {status: 404, title: Not found, schema: OBErrorResponse1, meaning: The requested resource (consent, account, payment) does not exist.}
+- {status: 405, title: Method Not Allowed, schema: OBErrorResponse1, meaning: HTTP method not supported on this resource.}
+- {status: 406, title: Not Acceptable, schema: OBErrorResponse1, meaning: Requested media type in Accept is not supported.}
+- {status: 409, title: Conflict, schema: OBErrorResponse1, meaning: Resource state conflict (e.g. duplicate/idempotency conflict).}
+- {status: 415, title: Unsupported Media Type, schema: OBErrorResponse1, meaning: Request Content-Type is not supported.}
+- {status: 422, title: Unprocessable Entity, schema: OBErrorResponse1, meaning: Semantically invalid request the ASPSP cannot process (business-rule failure).}
+- {status: 429, title: Too Many Requests, schema: OBErrorResponse1, meaning: Per-TPP rate limit exceeded; retry after backoff.}
+- {status: 500, title: Internal Server Error, schema: OBErrorResponse1, meaning: Unexpected ASPSP-side failure.}
+obie_error_codes:
+  note: OBErrorResponse1.Errors[].ErrorCode uses the OBIE UK.OBIE.* namespace.
+  examples:
+  - {code: UK.OBIE.Field.Invalid, meaning: A field failed validation.}
+  - {code: UK.OBIE.Field.Missing, meaning: A required/conditional field is absent.}
+  - {code: UK.OBIE.Resource.NotFound, meaning: Referenced resource does not exist.}
+  - {code: UK.OBIE.Resource.InvalidConsentStatus, meaning: Consent is not in a state that permits the operation.}
+  - {code: UK.OBIE.Rules.FailsControl, meaning: Request breaches an OBIE business rule / control.}
+  - {code: UK.OBIE.Signature.Invalid, meaning: x-jws-signature failed verification.}
+  - {code: UK.OBIE.Unsupported.Scheme, meaning: An account/payment scheme value is not supported.}

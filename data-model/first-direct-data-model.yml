@@ -1,0 +1,68 @@
+generated: '2026-07-23'
+method: derived
+source: openapi/obie-account-info-openapi.yaml, openapi/obie-payment-initiation-openapi.yaml, openapi/obie-confirmation-funds-openapi.yaml
+note: >-
+  Entity-relationship model derived from the OBIE Read/Write OpenAPI paths and
+  schemas that first direct conforms to (via HSBC UK). Consent resources gate
+  access to underlying banking resources; all resources are keyed by
+  server-assigned Ids (ConsentId, AccountId, DomesticPaymentId, …).
+entities:
+- name: AccountAccessConsent
+  id_field: ConsentId
+  api: openapi/obie-account-info-openapi.yaml
+  description: PSU authorisation granting an AISP read access to account/transaction data.
+- name: Account
+  id_field: AccountId
+  api: openapi/obie-account-info-openapi.yaml
+  description: A PSU bank account exposed to an authorised AISP.
+- name: Transaction
+  api: openapi/obie-account-info-openapi.yaml
+  description: A movement of funds on an account (read-only).
+- name: Balance
+  api: openapi/obie-account-info-openapi.yaml
+- name: Beneficiary
+  api: openapi/obie-account-info-openapi.yaml
+- name: StandingOrder
+  api: openapi/obie-account-info-openapi.yaml
+- name: DirectDebit
+  api: openapi/obie-account-info-openapi.yaml
+- name: Statement
+  id_field: StatementId
+  api: openapi/obie-account-info-openapi.yaml
+- name: Product
+  api: openapi/obie-account-info-openapi.yaml
+- name: Party
+  api: openapi/obie-account-info-openapi.yaml
+- name: DomesticPaymentConsent
+  id_field: ConsentId
+  api: openapi/obie-payment-initiation-openapi.yaml
+  description: PSU authorisation for a PISP to initiate a payment.
+- name: DomesticPayment
+  id_field: DomesticPaymentId
+  api: openapi/obie-payment-initiation-openapi.yaml
+- name: DomesticScheduledPayment
+  api: openapi/obie-payment-initiation-openapi.yaml
+- name: DomesticStandingOrder
+  api: openapi/obie-payment-initiation-openapi.yaml
+- name: InternationalPayment
+  api: openapi/obie-payment-initiation-openapi.yaml
+- name: FilePayment
+  api: openapi/obie-payment-initiation-openapi.yaml
+- name: FundsConfirmationConsent
+  id_field: ConsentId
+  api: openapi/obie-confirmation-funds-openapi.yaml
+- name: FundsConfirmation
+  api: openapi/obie-confirmation-funds-openapi.yaml
+relationships:
+- {from: Account, rel: belongs_to, to: AccountAccessConsent, via: ConsentId}
+- {from: Transaction, rel: belongs_to, to: Account, via: AccountId}
+- {from: Balance, rel: belongs_to, to: Account, via: AccountId}
+- {from: Beneficiary, rel: belongs_to, to: Account, via: AccountId}
+- {from: StandingOrder, rel: belongs_to, to: Account, via: AccountId}
+- {from: DirectDebit, rel: belongs_to, to: Account, via: AccountId}
+- {from: Statement, rel: belongs_to, to: Account, via: AccountId}
+- {from: DomesticPayment, rel: belongs_to, to: DomesticPaymentConsent, via: ConsentId}
+- {from: DomesticScheduledPayment, rel: belongs_to, to: DomesticPaymentConsent, via: ConsentId}
+- {from: FundsConfirmation, rel: belongs_to, to: FundsConfirmationConsent, via: ConsentId}
+patterns:
+  consent_first: Every write/data resource requires a prior consent resource (ConsentId) authorised by the PSU via SCA.

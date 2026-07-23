@@ -1,0 +1,41 @@
+generated: '2026-07-23'
+method: derived
+source: openapi/obie-account-info-openapi.yaml, openapi/obie-payment-initiation-openapi.yaml, openapi/obie-confirmation-funds-openapi.yaml
+note: >-
+  Cross-cutting request/response semantics for the OBIE UK Open Banking Read/Write
+  APIs as conformed to by first direct via HSBC. Derived from the shared OBIE
+  OpenAPI documents in openapi/. These are UK Open Banking (FAPI) standard
+  conventions, not first-direct-proprietary behaviour.
+authentication:
+  style: FAPI (Financial-grade API) — OAuth2/OIDC authorization + mutual-TLS client authentication + PSD2 SCA
+  detail: authentication/first-direct-authentication.yml
+idempotency:
+  supported: true
+  header: x-idempotency-key
+  scope: write operations (Payment Initiation consents/orders; Funds Confirmation)
+  retention: 24 hours
+  semantics: Every request is processed only once per x-idempotency-key; the key is valid for 24 hours.
+  source: openapi/obie-payment-initiation-openapi.yaml#/components/parameters/x-idempotency-key
+pagination:
+  style: link-based (RFC-style HAL Links)
+  response_fields:
+    links: [Self, First, Prev, Next, Last]
+    meta: [TotalPages, FirstAvailableDateTime, LastAvailableDateTime]
+  query_params: [fromBookingDateTime, toBookingDateTime]
+  note: Collection responses carry a Links object (Self/Next/…) and a Meta object (TotalPages, availability window).
+request_tracing:
+  correlation_header: x-fapi-interaction-id
+  description: RFC 4122 UUID echoed on every response (including errors) for end-to-end correlation.
+  related_headers: [x-fapi-auth-date, x-fapi-customer-ip-address, x-jws-signature]
+versioning:
+  scheme: uri-path
+  read_write_current: v4.0.1
+  open_data_current: v2.2
+  detail: lifecycle/first-direct-lifecycle.yml
+error_envelope:
+  schema: OBErrorResponse1
+  shape: '{ Code, Id, Message, Errors[ { ErrorCode, Message, Path, Url } ] }'
+  media_type: application/json; charset=utf-8
+  detail: errors/first-direct-problem-types.yml
+rate_limiting:
+  note: Per-TPP throttling is enforced by the ASPSP; a 429 (Too Many Requests) is defined on every operation. Limits are not published in the standard spec.

@@ -1,0 +1,31 @@
+# first direct
+
+> first direct is a telephone- and internet-based retail bank and a division of HSBC UK Bank plc (Leeds, England; launched 1989). It has no branches of its own. As an HSBC brand it participates in the UK Open Banking regime under HSBC UK — one of the nine CMA9 banks — regulated by the FCA and PRA. Its Open Banking surfaces conform to the OBIE (Open Banking Limited) standard: a public, unauthenticated Open Data API and the FAPI-secured OBIE Read/Write APIs (Account Information, Payment Initiation, Confirmation of Funds), onboarded through HSBC's developer portal at develop.hsbc.com. The OpenAPI documents here are the shared OBIE standard specs, not first-direct-proprietary contracts.
+
+## APIs
+- [Open Data API](https://api.hsbc.com/open-banking/v2.2): Public, unauthenticated OBIE Open Data (personal current accounts, ATMs, branches). Confirmed live.
+- [Account & Transaction Information (AIS)](https://develop.hsbc.com/): FAPI-secured read access to accounts, balances, transactions, beneficiaries, standing orders, statements.
+- [Payment Initiation (PIS)](https://develop.hsbc.com/): FAPI-secured domestic/international/scheduled/standing-order/file payment initiation.
+- [Confirmation of Funds (CBPII)](https://develop.hsbc.com/): FAPI-secured funds-confirmation checks.
+
+## Specs
+- [Open Data OpenAPI (Swagger 2.0 v1.3/v2.2)](openapi/obie-opendata-openapi.json)
+- [Account Information OpenAPI (OBIE v4.0.1)](openapi/obie-account-info-openapi.yaml)
+- [Payment Initiation OpenAPI (OBIE v4.0.1)](openapi/obie-payment-initiation-openapi.yaml)
+- [Confirmation of Funds OpenAPI (OBIE v4.0.1)](openapi/obie-confirmation-funds-openapi.yaml)
+
+## Semantics
+- [Authentication](authentication/first-direct-authentication.yml): FAPI — OAuth2/OIDC + mutual-TLS + PSD2 SCA.
+- [OAuth scopes](scopes/first-direct-scopes.yml): accounts, payments, fundsconfirmations.
+- [Conventions](conventions/first-direct-conventions.yml): x-idempotency-key (24h), Links/Meta pagination, x-fapi-interaction-id tracing.
+- [Error catalogue](errors/first-direct-problem-types.yml): OBErrorResponse1 envelope, UK.OBIE.* error codes.
+- [Conformance](conformance/first-direct-conformance.yml): OAuth2, OIDC, FAPI, PSD2, OBIE Read/Write, CMA9.
+- [Data model](data-model/first-direct-data-model.yml): consent-first entity graph.
+- [Lifecycle](lifecycle/first-direct-lifecycle.yml): OBIE versioning + deprecation policy.
+- [Sandbox](sandbox/first-direct-sandbox.yml): HSBC Dev Hub sandbox + Postman collection.
+
+## Docs
+- [HSBC Developer Portal](https://develop.hsbc.com/)
+- [Get started — Open Banking APIs](https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis)
+- [first direct Open Banking](https://www.firstdirect.com/ways-to-bank/open-banking/)
+- [Security / vulnerability disclosure](https://www.hsbc.com/.well-known/security.txt)

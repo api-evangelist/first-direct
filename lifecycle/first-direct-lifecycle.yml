@@ -1,0 +1,33 @@
+generated: '2026-07-23'
+method: searched
+source: https://standards.openbanking.org.uk/, https://github.com/OpenBankingUK/read-write-api-specs/releases, review.yml
+note: >-
+  Versioning and deprecation posture for first direct's Open Banking surfaces,
+  governed by the OBIE / Open Banking Limited standards that HSBC UK implements
+  for the first direct brand. These are the standard's lifecycle policies, not a
+  first-direct-specific SLA.
+versioning:
+  scheme: uri-path
+  read_write_current: v4.0.1
+  open_data_current: v2.2
+  read_write_docs: https://standards.openbanking.org.uk/
+  releases: https://github.com/OpenBankingUK/read-write-api-specs/releases
+deprecation:
+  policy_url: https://standards.openbanking.org.uk/operational-guidelines/change-and-communication-management/
+  summary: >-
+    ASPSPs support a minimum of two API versions in production. A superseded
+    minor version is supported for at least 3 months and a superseded major
+    version for at least 6 months from the publication of a new release. OBL may
+    mandate deprecation of any version within 3 months of notification for
+    critical (especially security) defects. Support for v3.1.11 endpoints has
+    ended.
+  minimum_versions_supported: 2
+  minor_support_months: 3
+  major_support_months: 6
+  ended: [v3.1.11]
+  sunset_header: unknown
+sla:
+  note: No public API uptime SLA is published for the Open Banking surfaces; availability is reported to OBL/FCA under the regulatory regime.
+status_page:
+  note: No dedicated first direct API status page confirmed; the public Open Data host (api.hsbc.com) was live (HTTP 200) at time of review.
+deprecated_operations: []

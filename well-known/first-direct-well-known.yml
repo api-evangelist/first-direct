@@ -1,0 +1,34 @@
+generated: '2026-07-23'
+method: searched
+source: live probes of /.well-known/ on api.hsbc.com, develop.hsbc.com, www.firstdirect.com, www.hsbc.com
+note: >-
+  first direct is a division of HSBC UK Bank plc and publishes no first-party
+  /.well-known/ surface. All probes against the API host (api.hsbc.com), the
+  developer portal (develop.hsbc.com) and the consumer site (www.firstdirect.com)
+  returned 404. A verified RFC 9116 security.txt is published at the HSBC group
+  domain (www.hsbc.com) and applies to the first direct brand; it is saved here
+  verbatim as first-direct-security.txt.
+hosts:
+- host: https://api.hsbc.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://develop.hsbc.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+- host: https://www.firstdirect.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /security.txt, status: 404}
+- host: https://www.hsbc.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: first-direct-security.txt
+    note: RFC 9116 security.txt for the HSBC group (covers first direct); Bugcrowd VDP + responsible-disclosure@hsbc.com.

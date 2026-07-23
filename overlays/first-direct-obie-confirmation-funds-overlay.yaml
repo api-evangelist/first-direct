@@ -1,0 +1,15 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for first direct — Confirmation of Funds (CBPII)
+  version: 1.0.0
+extends: openapi/obie-confirmation-funds-openapi.yaml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-brand: first direct (HSBC UK Bank plc)
+    x-apievangelist-standard: OBIE UK Open Banking
+    x-apievangelist-spec-provenance: shared OBIE standard specification, not a first-direct-proprietary contract
+    x-apievangelist-conformance: conformance/first-direct-conformance.yml
+    x-apievangelist-authentication: authentication/first-direct-authentication.yml
+    x-apievangelist-conventions: conventions/first-direct-conventions.yml
+    x-apievangelist-errors: errors/first-direct-problem-types.yml

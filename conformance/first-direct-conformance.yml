@@ -1,0 +1,51 @@
+generated: '2026-07-23'
+method: derived
+source: openapi/*, review.yml, https://www.openbanking.org.uk/
+note: >-
+  Standards conformance for first direct's Open Banking surfaces (delivered via
+  HSBC UK). Derived from the OBIE OpenAPI documents (securitySchemes, headers,
+  media types, error/idempotency conventions) and the UK Open Banking regulatory
+  regime. first direct/HSBC conform to the shared OBIE standard; they publish no
+  bank-proprietary contract.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: OpenAPI securitySchemes declare oauth2 (TPPOAuth2Security clientCredentials, PSUOAuth2Security authorizationCode).
+- id: openid-connect
+  conforms: true
+  evidence: PSU authorization uses OIDC hybrid flow for PSD2 strong customer authentication (OBIE Read/Write security profile).
+- id: fapi
+  conforms: true
+  evidence: FAPI-secured — mutual-TLS client authentication, x-fapi-* headers (x-fapi-interaction-id / -auth-date / -customer-ip-address), x-jws-signature message signing.
+- id: fapi-ce-1.0
+  conforms: true
+  evidence: OBIE Read/Write v4.0.x security profile aligns to FAPI 1.0 Advanced.
+- id: psd2
+  conforms: true
+  evidence: PSD2 Regulatory Technical Standards — strong customer authentication and dedicated interface via the OBIE Read/Write APIs.
+- id: obie-read-write
+  conforms: true
+  evidence: Account & Transaction (AIS), Payment Initiation (PIS), Confirmation of Funds (CBPII) implement OBIE Read/Write Standard v4.0.1.
+- id: obie-open-data
+  conforms: true
+  evidence: Public Open Data API v2.2 confirmed live at api.hsbc.com (application/prs.openbanking.opendata.v2.2+json).
+- id: cma9
+  conforms: true
+  evidence: first direct is part of HSBC UK, one of the nine CMA-mandated banks (CMA9).
+- id: idempotency
+  conforms: true
+  evidence: x-idempotency-key header on write operations with 24-hour retention (see conventions/).
+- id: pagination-links
+  conforms: true
+  evidence: Collection responses use OBIE Links (Self/Next/…) + Meta (TotalPages) pagination.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use the OBIE OBErrorResponse1 envelope (application/json), not application/problem+json.
+- id: mutual-tls
+  conforms: true
+  evidence: TPP client authentication is certificate-bound (OBIE/eIDAS transport certificates).
+regulatory:
+  regime: UK Open Banking
+  regulators: [FCA, PRA]
+  standards_body: Open Banking Limited (OBIE)
+  brand_parent: HSBC UK Bank plc

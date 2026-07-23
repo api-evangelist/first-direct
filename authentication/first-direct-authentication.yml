@@ -1,0 +1,53 @@
+generated: '2026-07-23'
+method: searched
+source: openapi/obie-account-info-openapi.yaml, openapi/obie-confirmation-funds-openapi.yaml,
+  openapi/obie-payment-initiation-openapi.yaml
+docs: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
+profile: FAPI (Financial-grade API) — UK Open Banking / OBIE Read/Write security profile
+notes: >-
+  The OpenAPI securitySchemes declare only the oauth2 flows (placeholder authserver.example
+  URLs are the OBIE standard's examples). The real first direct / HSBC UK production model is
+  FAPI-secured and adds, beyond OAuth2/OIDC: mutual-TLS client authentication with
+  OBIE/eIDAS transport certificates, detached JWS request signing (x-jws-signature), and
+  PSD2 strong customer authentication (SCA) for the PSU authorization-code flow. Access
+  requires FCA authorisation as an AISP/PISP/CBPII and directory registration. The public
+  Open Data API requires no authentication.
+mechanisms:
+- oauth2 (TPP client_credentials + PSU authorization_code)
+- openIdConnect
+- mutualTLS (OBIE/eIDAS transport certificates)
+- request-signing (detached JWS, x-jws-signature)
+- psd2-sca
+summary:
+  types:
+  - oauth2
+  - openIdConnect
+  - mutualTLS
+  oauth2_flows:
+  - authorizationCode
+  - clientCredentials
+schemes:
+- name: TPPOAuth2Security
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://authserver.example/token
+    scopes: 1
+  description: TPP client credential authorisation flow with the ASPSP
+  sources:
+  - openapi/obie-account-info-openapi.yaml
+  - openapi/obie-confirmation-funds-openapi.yaml
+  - openapi/obie-payment-initiation-openapi.yaml
+- name: PSUOAuth2Security
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://authserver.example/authorization
+    tokenUrl: https://authserver.example/token
+    scopes: 1
+  description: OAuth flow, it is required when the PSU needs to perform SCA with the ASPSP when
+    a TPP wants to access an ASPSP resource owned by the PSU
+  sources:
+  - openapi/obie-account-info-openapi.yaml
+  - openapi/obie-confirmation-funds-openapi.yaml
+  - openapi/obie-payment-initiation-openapi.yaml

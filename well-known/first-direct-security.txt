@@ -1,0 +1,11 @@
+# HSBC is one of the largest banking and financial services organisations in the world, with
+# operations in 57 countries and territories.
+#
+# HSBC welcomes the identification of vulnerabilities that can assist us in creating a safer
+# internet for our customers.
+
+Contact: https://bugcrowd.com/engagements/hsbc-vdp-pro
+Contact: mailto:responsible-disclosure@hsbc.com
+Hiring: https://mycareer.hsbc.com/en_GB/external/SearchJobs/cyber
+Preferred-Languages: en, pl, cn, es
+Expires: 2026-05-01T22:59:00.000Z

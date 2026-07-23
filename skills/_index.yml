@@ -1,0 +1,19 @@
+generated: '2026-07-23'
+method: generated
+source: openapi/obie-account-info-openapi.yaml, openapi/obie-payment-initiation-openapi.yaml, openapi/obie-confirmation-funds-openapi.yaml
+note: >-
+  Agent Skills grounded in verbatim OBIE Read/Write operationIds that first direct
+  conforms to via HSBC UK. Every operation named exists in the referenced spec.
+skills:
+- file: first-direct-account-information.md
+  name: Retrieve account information (AIS)
+  api: openapi/obie-account-info-openapi.yaml
+  operations: [CreateAccountAccessConsents, GetAccounts, GetAccountsAccountIdBalances, GetAccountsAccountIdTransactions]
+- file: first-direct-domestic-payment.md
+  name: Initiate a domestic payment (PIS)
+  api: openapi/obie-payment-initiation-openapi.yaml
+  operations: [CreateDomesticPaymentConsents, GetDomesticPaymentConsentsConsentIdFundsConfirmation, CreateDomesticPayments, GetDomesticPaymentsDomesticPaymentId]
+- file: first-direct-confirmation-of-funds.md
+  name: Confirm availability of funds (CBPII)
+  api: openapi/obie-confirmation-funds-openapi.yaml
+  operations: [CreateFundsConfirmationConsents, GetFundsConfirmationConsentsConsentId, CreateFundsConfirmations]

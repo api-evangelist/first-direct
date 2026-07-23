@@ -1,0 +1,25 @@
+generated: '2026-07-23'
+method: searched
+source: https://github.com/OpenBankingUK/read-write-api-specs/releases, https://www.openbanking.org.uk/news/
+note: >-
+  first direct publishes no bank-specific API changelog; its Open Banking surfaces
+  track the OBIE / Open Banking Limited standard versions that HSBC UK implements.
+  This records the recent standard-version window.
+scheme: semver (OBIE standard versions)
+current:
+  read_write: v4.0.1
+  open_data: v2.2
+entries:
+- version: v4.0.1
+  standard: OBIE Read/Write
+  breaking: false
+  highlights: Patch release on the v4.0 Open Banking Standard (published to assure future ecosystem growth).
+- version: v4.0.0
+  standard: OBIE Read/Write
+  breaking: true
+  highlights: Major Open Banking Standard v4.0 release.
+- version: v3.1.11
+  standard: OBIE Read/Write
+  breaking: false
+  status: ended
+  highlights: Support for v3.1.11 endpoints has ended; OBL delivers no further upgrades or functional changes to them.

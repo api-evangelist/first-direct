@@ -46,6 +46,7 @@ tags:
 created: '2026-07-23'
 modified: '2026-07-23'
 specificationVersion: '0.19'
+# enrichment round 2026-07-23
 apis:
 - aid: first-direct:first-direct-open-data-api
   name: first direct Open Data API
@@ -128,6 +129,58 @@ apis:
   - type: APIReference
     url: https://develop.hsbc.com/
 common:
+- type: AgenticAccess
+  url: agentic-access/first-direct-agentic-access.yml
+- type: DomainSecurity
+  url: security/first-direct-domain-security.yml
+- type: OAuthScopes
+  url: scopes/first-direct-scopes.yml
+- type: Authentication
+  url: authentication/first-direct-authentication.yml
+- type: Conventions
+  url: conventions/first-direct-conventions.yml
+- type: Idempotency
+  url: conventions/first-direct-conventions.yml
+- type: ErrorCatalog
+  url: errors/first-direct-problem-types.yml
+- type: Conformance
+  url: conformance/first-direct-conformance.yml
+- type: Lifecycle
+  url: lifecycle/first-direct-lifecycle.yml
+- type: Deprecation
+  url: https://standards.openbanking.org.uk/operational-guidelines/change-and-communication-management/
+- type: ChangeLog
+  url: changelog/first-direct-changelog.yml
+- type: DataModel
+  url: data-model/first-direct-data-model.yml
+- type: Sandbox
+  url: sandbox/first-direct-sandbox.yml
+- type: Postman
+  url: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
+- type: WellKnown
+  url: well-known/first-direct-well-known.yml
+- type: SecurityTxt
+  url: well-known/first-direct-security.txt
+- type: VulnerabilityDisclosure
+  url: security/first-direct-vulnerability-disclosure.yml
+- type: Security
+  url: https://www.hsbc.com/.well-known/security.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/first-direct-llms.txt
+- type: Overlay
+  url: overlays/first-direct-obie-account-info-overlay.yaml
+- type: Overlay
+  url: overlays/first-direct-obie-payment-initiation-overlay.yaml
+- type: Overlay
+  url: overlays/first-direct-obie-confirmation-funds-overlay.yaml
+- type: Overlay
+  url: overlays/first-direct-obie-opendata-overlay.yaml
+- type: GettingStarted
+  url: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
+- type: SignUp
+  url: https://develop.hsbc.com/
 - type: Website
   url: https://www.firstdirect.com/
 - type: DeveloperPortal

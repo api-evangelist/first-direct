@@ -1,0 +1,23 @@
+generated: '2026-07-23'
+method: derived
+status: candidate
+source: openapi/obie-account-info-openapi.yaml, openapi/obie-payment-initiation-openapi.yaml, openapi/obie-confirmation-funds-openapi.yaml
+note: >-
+  No official hosted MCP server is published by first direct or HSBC. This is a
+  CANDIDATE tool surface derived from the OBIE Read/Write operations to show how
+  an agent could wrap them; it is not a live server. Any real deployment would sit
+  behind FAPI (OAuth2/OIDC + mutual-TLS + PSD2 SCA), so tools are read/write-gated
+  by consent. Not wired as a scored MCPServer pointer because no server exists.
+server:
+  name: first-direct
+  transport: null
+  url: null
+tools:
+- {name: list_accounts, description: List authorised PSU accounts, source_operation: 'openapi/obie-account-info-openapi.yaml#GetAccounts'}
+- {name: get_account_transactions, description: List transactions for an account, source_operation: 'openapi/obie-account-info-openapi.yaml#GetAccountsAccountIdTransactions'}
+- {name: get_account_balances, description: Get balances for an account, source_operation: 'openapi/obie-account-info-openapi.yaml#GetAccountsAccountIdBalances'}
+- {name: create_account_access_consent, description: Create an AIS account-access consent, source_operation: 'openapi/obie-account-info-openapi.yaml#CreateAccountAccessConsents'}
+- {name: create_domestic_payment_consent, description: Create a domestic payment consent, source_operation: 'openapi/obie-payment-initiation-openapi.yaml#CreateDomesticPaymentConsents'}
+- {name: create_domestic_payment, description: Initiate a domestic payment, source_operation: 'openapi/obie-payment-initiation-openapi.yaml#CreateDomesticPayments'}
+- {name: create_funds_confirmation_consent, description: Create a funds-confirmation consent, source_operation: 'openapi/obie-confirmation-funds-openapi.yaml#CreateFundsConfirmationConsents'}
+- {name: check_funds, description: Confirm availability of funds, source_operation: 'openapi/obie-confirmation-funds-openapi.yaml#CreateFundsConfirmations'}
