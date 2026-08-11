@@ -129,6 +129,8 @@ apis:
   - type: APIReference
     url: https://develop.hsbc.com/
 common:
+- type: MCPServer
+  url: mcp/first-direct-mcp.yml
 - type: AgenticAccess
   url: agentic-access/first-direct-agentic-access.yml
 - type: DomainSecurity
