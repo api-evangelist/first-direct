@@ -17,6 +17,18 @@ description: first direct is a telephone- and internet-based retail bank and a d
   Account and Transaction Information (AIS), Payment Initiation (PIS) and Confirmation
   of Funds (CBPII) - onboarded and documented through HSBC's developer portal at
   develop.hsbc.com, which serves the HSBC UK, first direct and M&S Bank brands.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
