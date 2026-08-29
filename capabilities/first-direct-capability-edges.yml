@@ -1,0 +1,215 @@
+slug: first-direct
+provider: first direct
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 21
+edges:
+- tag: Domestic Payments
+  spec_file: first-direct-domestic-payments-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.95
+  evidence: POST /domestic-payments  CreateDomesticPayments  Initiate a Domestic Payment
+  reason: Operations initiate and retrieve domestic payment instructions with remittance and charge-bearer
+    detail — plainly payment initiation.
+- tag: Domestic Payment Consents
+  spec_file: first-direct-domestic-payment-consents-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.9
+  evidence: POST /domestic-payment-consents  Create a Domestic Payment Consent; GET .../funds-confirmation  Confirm
+    availability of funds for a Domestic Payment
+  reason: Open Banking PISP consent creation and funds availability confirmation is payment instruction
+    capture, validation and authorisation.
+- tag: Domestic Scheduled Payments
+  spec_file: first-direct-domestic-scheduled-payments-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.9
+  evidence: POST /domestic-scheduled-payments  CreateDomesticScheduledPayments  Initiate a Domestic Scheduled
+    Payment
+  reason: Initiation and status retrieval of future-dated domestic payment instructions.
+- tag: International Payments
+  spec_file: first-direct-international-payments-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.9
+  evidence: POST /international-payments  CreateInternationalPayments  Initiate an International Payment
+  reason: Directly initiates and tracks international payments, i.e. cross-border payment management.
+- tag: Domestic Scheduled Payment Consents
+  spec_file: first-direct-domestic-scheduled-payment-consents-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.88
+  evidence: POST /domestic-scheduled-payment-consents  Create a Domestic Scheduled Payment Consent
+  reason: Consent/authorisation capture for a future-dated domestic payment instruction, i.e. payment
+    initiation authorisation.
+- tag: Domestic Standing Orders
+  spec_file: first-direct-domestic-standing-orders-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.88
+  evidence: POST /domestic-standing-orders  CreateDomesticStandingOrders  Submit a Domestic Standing Order
+  reason: Submission and retrieval of recurring domestic payment instructions with payment details — payment
+    instruction capture and authorisation.
+- tag: File Payments
+  spec_file: first-direct-file-payments-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.88
+  evidence: POST /file-payments  CreateFilePayments  Submit a File Payment; openapi title "Payment Initiation
+    File Payments API"
+  reason: Open Banking payment initiation surface for bulk/file payment instructions, with submission,
+    status retrieval and payment details — payment instruction capture and authorisation.
+- tag: International Scheduled Payments
+  spec_file: first-direct-international-scheduled-payments-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.87
+  evidence: POST /international-scheduled-payments  CreateInternationalScheduledPayments  Initiate an
+    International Scheduled Payment
+  reason: Initiation and retrieval of future-dated international payments — cross-border payment initiation.
+- tag: Domestic Standing Order Consents
+  spec_file: first-direct-domestic-standing-order-consents-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.85
+  evidence: POST /domestic-standing-order-consents  Create a Domestic Standing Order Consent; schemas
+    OBMandateRelatedInformation1, Frequency_1
+  reason: Consent capture and authorisation for recurring standing order payment instructions.
+- tag: File Payment Consents
+  spec_file: first-direct-file-payment-consents-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.85
+  evidence: POST /file-payment-consents  Create a File Payment Consent; POST /file-payment-consents/{ConsentId}/file  Upload
+    a File for a ConsentId
+  reason: Bulk/batch payment file consent and upload for Open Banking payment initiation; the file upload
+    is the mechanism for capturing payment instructions, not generic file handling.
+- tag: International Standing Orders
+  spec_file: first-direct-international-standing-orders-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.83
+  evidence: POST /international-standing-orders  CreateInternationalStandingOrders  Submit an International
+    Standing Order
+  reason: Recurring international payment instructions (standing orders with Frequency and mandate information)
+    — cross-border payment management.
+- tag: International Payment Consents
+  spec_file: first-direct-international-payment-consents-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.8
+  evidence: POST /international-payment-consents  CreateInternationalPaymentConsents  Create an International
+    Payment Consent
+  reason: Consent capture and funds-availability confirmation preceding an international (cross-border)
+    payment initiation.
+- tag: International Scheduled Payments Consents
+  spec_file: first-direct-international-scheduled-payments-consents-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.8
+  evidence: POST /international-scheduled-payment-consents  CreateInternationalScheduledPaymentConsents  Create
+    an International Scheduled Payment Consent
+  reason: Consent and funds-confirmation step for cross-border scheduled payment initiation.
+- tag: International Standing Orders Consents
+  spec_file: first-direct-international-standing-orders-consents-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.8
+  evidence: POST /international-standing-order-consents  CreateInternationalStandingOrderConsents  Create
+    an International Standing Order Consent
+  reason: Consent capture for recurring cross-border standing order instructions.
+- tag: Parties
+  spec_file: first-direct-parties-api-openapi.yml
+  capability_id: BC-1300.40
+  capability_id_l1: BC-1300
+  capability_name: Customer Information Management
+  confidence: 0.8
+  evidence: GET /accounts/{AccountId}/party  GetAccountsAccountIdParty  Get Party for an AccountId; schemas
+    OBReadParty3, FullLegalName, PhoneNumber_0
+  reason: Exposes the account holder / related party master data (legal name, address, phone, account
+    role) — banking customer information.
+- tag: Products
+  spec_file: first-direct-products-api-openapi.yml
+  capability_id: BC-1310.10
+  capability_id_l1: BC-1310
+  capability_name: Product Catalogue Management
+  confidence: 0.78
+  evidence: GET /products GetProducts Get Products; schemas OBReadProduct2, OB_FeeFrequency1Code_0, OB_InterestCalculationMethod1Code
+  reason: Open Banking product-information endpoints expose the retail banking product master with fees
+    and interest calculation attributes, i.e. banking product catalogue publication rather than any technical
+    object.
+- tag: ATM
+  spec_file: first-direct-atm-api-openapi.yml
+  capability_id: BC-1300.50
+  capability_id_l1: BC-1300
+  capability_name: Banking Channels Management
+  confidence: 0.75
+  evidence: openapi title 'Open Data ATM API'; GET /atms
+  reason: Publishes the bank's ATM estate information under the UK Open Data standard. ATM networks are
+    explicitly part of banking channel operations. Confidence tempered because the surface is purely a
+    public reference-data feed.
+- tag: Branch
+  spec_file: first-direct-branch-api-openapi.yml
+  capability_id: BC-1300.50
+  capability_id_l1: BC-1300
+  capability_name: Banking Channels Management
+  confidence: 0.7
+  evidence: 'openapi title: Open Data Branch API; GET /branches'
+  reason: UK Open Data branch endpoint publishing the bank's branch network information, which maps to
+    banking channel (branch/ATM) operations. Thin context (no schemas or summaries) limits confidence.
+- tag: Direct Debits
+  spec_file: first-direct-direct-debits-api-openapi.yml
+  capability_id: BC-1340
+  capability_id_l1: BC-1340
+  capability_name: Payments & Card Management
+  confidence: 0.7
+  evidence: GET /accounts/{AccountId}/direct-debits  Get Direct Debits for an AccountId; schemas OBMandateRelatedInformation1,
+    ExternalMandateStatus1Code, OBReadDirectDebit2
+  reason: Returns direct debit mandates and their status/frequency on an account — a payments capability,
+    but the read-only mandate view does not clearly pin one sub-capability (initiation vs clearing).
+- tag: Scheduled Payments
+  spec_file: first-direct-scheduled-payments-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.7
+  evidence: GET /accounts/{AccountId}/scheduled-payments  Get Scheduled Payments for an AccountId; schema
+    OBReadScheduledPayment3, OBInternalScheduleType1Code
+  reason: Exposes future-dated payment instructions held against an account — payment instruction data,
+    so Payments & Card Management; sub-capability (initiation vs servicing) is somewhat ambiguous since
+    operations are read-only.
+- tag: Standing Orders
+  spec_file: first-direct-standing-orders-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.7
+  evidence: GET /standing-orders GetStandingOrders  Get Standing Orders; schemas OBMandateRelatedInformation1,
+    LastPaymentDateTime, Frequency_1
+  reason: Standing order mandates are recurring payment instructions on the account; clearly payments
+    domain, though the read-only nature makes the exact sub-capability less certain.

@@ -638,6 +638,9 @@ apis:
   - type: APIReference
     url: https://develop.hsbc.com/
 common:
+- type: CapabilityMap
+  url: capabilities/first-direct-capability-edges.yml
+  name: first direct Business Capability Map
 - type: MCPServer
   url: mcp/first-direct-mcp.yml
 - type: AgenticAccess
