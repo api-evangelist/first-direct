@@ -95,6 +95,8 @@ apis:
   humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
   baseURL: https://api.hsbc.com/open-banking/v2.2
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -547,6 +549,8 @@ apis:
   humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
   baseURL: https://api.hsbc.com/open-banking/v2.2
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
@@ -627,6 +631,8 @@ apis:
   humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
   baseURL: https://api.hsbc.com/open-banking/v2.2
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
