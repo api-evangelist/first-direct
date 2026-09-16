@@ -2,21 +2,18 @@ aid: first-direct
 url: https://raw.githubusercontent.com/api-evangelist/first-direct/refs/heads/main/apis.yml
 name: first direct
 kind: company
-description: first direct is a telephone- and internet-based retail bank and a division
-  of HSBC UK Bank plc, headquartered in Leeds, England and launched in 1989. It offers
-  personal current accounts, savings, credit cards, loans, mortgages and insurance to
-  UK consumers with a reputation for customer service, operating with no physical
-  branches of its own. As an HSBC brand, first direct participates in the UK Open Banking
-  regime under HSBC UK - one of the nine CMA9 banks mandated by the Competition and
-  Markets Authority - and is regulated by the Financial Conduct Authority (FCA) and
-  Prudential Regulation Authority (PRA). Its Open Banking surfaces conform to the Open
-  Banking Implementation Entity (OBIE / Open Banking Limited) standards - a public,
-  unauthenticated Open Data API (personal current account product reference data, ATM
-  and branch locators, published on the shared HSBC api.hsbc.com host where "first
-  direct" appears as a distinct brand) and the FAPI-secured OBIE Read/Write APIs -
-  Account and Transaction Information (AIS), Payment Initiation (PIS) and Confirmation
-  of Funds (CBPII) - onboarded and documented through HSBC's developer portal at
-  develop.hsbc.com, which serves the HSBC UK, first direct and M&S Bank brands.
+description: first direct is a telephone- and internet-based retail bank and a division of HSBC UK Bank
+  plc, headquartered in Leeds, England and launched in 1989. It offers personal current accounts, savings,
+  credit cards, loans, mortgages and insurance to UK consumers with a reputation for customer service,
+  operating with no physical branches of its own. As an HSBC brand, first direct participates in the UK
+  Open Banking regime under HSBC UK - one of the nine CMA9 banks mandated by the Competition and Markets
+  Authority - and is regulated by the Financial Conduct Authority (FCA) and Prudential Regulation Authority
+  (PRA). Its Open Banking surfaces conform to the Open Banking Implementation Entity (OBIE / Open Banking
+  Limited) standards - a public, unauthenticated Open Data API (personal current account product reference
+  data, ATM and branch locators, published on the shared HSBC api.hsbc.com host where "first direct" appears
+  as a distinct brand) and the FAPI-secured OBIE Read/Write APIs - Account and Transaction Information
+  (AIS), Payment Initiation (PIS) and Confirmation of Funds (CBPII) - onboarded and documented through
+  HSBC's developer portal at develop.hsbc.com, which serves the HSBC UK, first direct and M&S Bank brands.
 deliveryModel:
   model: saas
   open_source: false
@@ -68,14 +65,12 @@ tags_raw:
 - HSBC
 - Fintech
 created: '2026-07-23'
-modified: '2026-07-23'
+modified: '2026-09-16'
 specificationVersion: '0.23'
-# enrichment round 2026-07-23
 apis:
 - aid: first-direct:first-direct-account-access-consents-api
   name: first direct Account Access Consents API
-  description: >-
-    The Account Access Consents API from first direct — 2 operation(s) for account access consents.
+  description: The Account Access Consents API from first direct — 2 operation(s) for account access consents.
   humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
   baseURL: https://api.hsbc.com/open-banking/v2.2
   tags:
@@ -204,7 +199,7 @@ apis:
   - type: APIReference
     url: https://develop.hsbc.com/
 - aid: first-direct:first-direct-direct-debits-api
-  name: first direct Direct Debits API
+  name: first direct Debits API
   description: The Direct Debits API from first direct — 2 operation(s) for direct debits.
   humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
   baseURL: https://api.hsbc.com/open-banking/v2.2
@@ -221,8 +216,8 @@ apis:
     url: https://develop.hsbc.com/
 - aid: first-direct:first-direct-domestic-payment-consents-api
   name: first direct Domestic Payment Consents API
-  description: >-
-    The Domestic Payment Consents API from first direct — 3 operation(s) for domestic payment consents.
+  description: The Domestic Payment Consents API from first direct — 3 operation(s) for domestic payment
+    consents.
   humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
   baseURL: https://api.hsbc.com/open-banking/v2.2
   tags:
@@ -254,9 +249,8 @@ apis:
     url: https://develop.hsbc.com/
 - aid: first-direct:first-direct-domestic-scheduled-payment-consents-api
   name: first direct Domestic Scheduled Payment Consents API
-  description: >-
-    The Domestic Scheduled Payment Consents API from first direct — 2 operation(s) for domestic scheduled
-    payment consents.
+  description: The Domestic Scheduled Payment Consents API from first direct — 2 operation(s) for domestic
+    scheduled payment consents.
   humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
   baseURL: https://api.hsbc.com/open-banking/v2.2
   tags:
@@ -272,8 +266,8 @@ apis:
     url: https://develop.hsbc.com/
 - aid: first-direct:first-direct-domestic-scheduled-payments-api
   name: first direct Domestic Scheduled Payments API
-  description: >-
-    The Domestic Scheduled Payments API from first direct — 3 operation(s) for domestic scheduled payments.
+  description: The Domestic Scheduled Payments API from first direct — 3 operation(s) for domestic scheduled
+    payments.
   humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
   baseURL: https://api.hsbc.com/open-banking/v2.2
   tags:
@@ -289,9 +283,8 @@ apis:
     url: https://develop.hsbc.com/
 - aid: first-direct:first-direct-domestic-standing-order-consents-api
   name: first direct Domestic Standing Order Consents API
-  description: >-
-    The Domestic Standing Order Consents API from first direct — 2 operation(s) for domestic standing
-    order consents.
+  description: The Domestic Standing Order Consents API from first direct — 2 operation(s) for domestic
+    standing order consents.
   humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
   baseURL: https://api.hsbc.com/open-banking/v2.2
   tags:
@@ -307,8 +300,8 @@ apis:
     url: https://develop.hsbc.com/
 - aid: first-direct:first-direct-domestic-standing-orders-api
   name: first direct Domestic Standing Orders API
-  description: >-
-    The Domestic Standing Orders API from first direct — 3 operation(s) for domestic standing orders.
+  description: The Domestic Standing Orders API from first direct — 3 operation(s) for domestic standing
+    orders.
   humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
   baseURL: https://api.hsbc.com/open-banking/v2.2
   tags:
@@ -324,8 +317,7 @@ apis:
     url: https://develop.hsbc.com/
 - aid: first-direct:first-direct-file-payment-consents-api
   name: first direct File Payment Consents API
-  description: >-
-    The File Payment Consents API from first direct — 3 operation(s) for file payment consents.
+  description: The File Payment Consents API from first direct — 3 operation(s) for file payment consents.
   humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
   baseURL: https://api.hsbc.com/open-banking/v2.2
   tags:
@@ -357,8 +349,8 @@ apis:
     url: https://develop.hsbc.com/
 - aid: first-direct:first-direct-funds-confirmation-consents-api
   name: first direct Funds Confirmation Consents API
-  description: >-
-    The Funds Confirmation Consents API from first direct — 2 operation(s) for funds confirmation consents.
+  description: The Funds Confirmation Consents API from first direct — 2 operation(s) for funds confirmation
+    consents.
   humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
   baseURL: https://api.hsbc.com/open-banking/v2.2
   tags:
@@ -390,9 +382,8 @@ apis:
     url: https://develop.hsbc.com/
 - aid: first-direct:first-direct-international-payment-consents-api
   name: first direct International Payment Consents API
-  description: >-
-    The International Payment Consents API from first direct — 3 operation(s) for international payment
-    consents.
+  description: The International Payment Consents API from first direct — 3 operation(s) for international
+    payment consents.
   humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
   baseURL: https://api.hsbc.com/open-banking/v2.2
   tags:
@@ -408,8 +399,7 @@ apis:
     url: https://develop.hsbc.com/
 - aid: first-direct:first-direct-international-payments-api
   name: first direct International Payments API
-  description: >-
-    The International Payments API from first direct — 3 operation(s) for international payments.
+  description: The International Payments API from first direct — 3 operation(s) for international payments.
   humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
   baseURL: https://api.hsbc.com/open-banking/v2.2
   tags:
@@ -425,9 +415,8 @@ apis:
     url: https://develop.hsbc.com/
 - aid: first-direct:first-direct-international-scheduled-payments-api
   name: first direct International Scheduled Payments API
-  description: >-
-    The International Scheduled Payments API from first direct — 3 operation(s) for international scheduled
-    payments.
+  description: The International Scheduled Payments API from first direct — 3 operation(s) for international
+    scheduled payments.
   humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
   baseURL: https://api.hsbc.com/open-banking/v2.2
   tags:
@@ -443,9 +432,8 @@ apis:
     url: https://develop.hsbc.com/
 - aid: first-direct:first-direct-international-scheduled-payments-consents-api
   name: first direct International Scheduled Payments Consents API
-  description: >-
-    The International Scheduled Payments Consents API from first direct — 3 operation(s) for international
-    scheduled payments consents.
+  description: The International Scheduled Payments Consents API from first direct — 3 operation(s) for
+    international scheduled payments consents.
   humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
   baseURL: https://api.hsbc.com/open-banking/v2.2
   tags:
@@ -461,9 +449,8 @@ apis:
     url: https://develop.hsbc.com/
 - aid: first-direct:first-direct-international-standing-orders-api
   name: first direct International Standing Orders API
-  description: >-
-    The International Standing Orders API from first direct — 3 operation(s) for international standing
-    orders.
+  description: The International Standing Orders API from first direct — 3 operation(s) for international
+    standing orders.
   humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
   baseURL: https://api.hsbc.com/open-banking/v2.2
   tags:
@@ -479,8 +466,7 @@ apis:
     url: https://develop.hsbc.com/
 - aid: first-direct:first-direct-international-standing-orders-consents-api
   name: first direct International Standing Orders Consents API
-  description: >-
-    The International Standing Orders Consents API from first direct — 2 operation(s) for international
+  description: The International Standing Orders Consents API from first direct — 2 operation(s) for international
     standing orders consents.
   humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
   baseURL: https://api.hsbc.com/open-banking/v2.2
@@ -649,7 +635,10 @@ common:
   name: first direct Business Capability Map
 - type: X-MCPServerCandidate
   url: mcp/first-direct-mcp.yml
-  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate
+    — a tool list derived from the published API contracts, not an existing server. The scorer already
+    read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type
+    surfaces with a server that does not exist.'
 - type: AgenticAccess
   url: agentic-access/first-direct-agentic-access.yml
 - type: DomainSecurity
