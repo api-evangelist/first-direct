@@ -41,7 +41,7 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
-- Financial-Services
+- Financial Services
 - Banking
 - Open Banking
 - PSD2
@@ -64,6 +64,7 @@ tags_raw:
 - Open Data
 - HSBC
 - Fintech
+- Financial-Services
 created: '2026-07-23'
 modified: '2026-09-16'
 specificationVersion: '0.23'
@@ -569,6 +570,8 @@ apis:
   humanURL: https://develop.hsbc.com/knowledge-article/get-started-open-banking-apis
   baseURL: https://api.hsbc.com/open-banking/v2.2
   tags:
+  - Small Business
+  tags_raw:
   - SME
   properties:
   - type: OpenAPI
